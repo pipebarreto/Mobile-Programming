@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
+import Calculator from './tasks/calculator/Calculator';
+import Networking from './tasks/Networking';
+import NumberGuessing from './tasks/NumberGuessing';
+import ShoppingList from './tasks/ShoppingList';
+import RecipeFinder from './tasks/recipeFinder/RecipeFinder';
+import EuroConverter from './tasks/EuroConverter';
+import FindTheAdress from './tasks/maps/FindTheAdress';
+import ShoppingListSQL from './tasks/shopping_SQL/ShoppingListSQL';
+import ShoppingListFirebase from './tasks/shoppingListFirebase/ShoppingListFirebase';
+
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+  return (
+
+    <ShoppingListFirebase />
+
+  )
+}
