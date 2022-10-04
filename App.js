@@ -8,6 +8,7 @@ import EuroConverter from './tasks/EuroConverter';
 import FindTheAdress from './tasks/maps/FindTheAdress';
 import ShoppingListSQL from './tasks/shopping_SQL/ShoppingListSQL';
 import ShoppingListFirebase from './tasks/shoppingListFirebase/ShoppingListFirebase';
+import ContactsAssignment from './tasks/contacts/ContactsAssignment';
 
 
 
@@ -16,7 +17,7 @@ export default function App() {
 
   return (
 
-    <ShoppingListFirebase />
+    <ContactsAssignment />
 
   )
 }
