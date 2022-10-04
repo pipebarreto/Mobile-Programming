@@ -9,6 +9,7 @@ import FindTheAdress from './tasks/maps/FindTheAdress';
 import ShoppingListSQL from './tasks/shopping_SQL/ShoppingListSQL';
 import ShoppingListFirebase from './tasks/shoppingListFirebase/ShoppingListFirebase';
 import ContactsAssignment from './tasks/contacts/ContactsAssignment';
+import TextToSpeech from './tasks/textToSpeech/TextToSpeech';
 
 
 
@@ -17,7 +18,7 @@ export default function App() {
 
   return (
 
-    <ContactsAssignment />
+    <TextToSpeech />
 
   )
 }
