@@ -1,12 +1,11 @@
-import { StyleSheet, Text, View, FlatList } from 'react-native';
-
+import { StyleSheet, View, FlatList } from 'react-native';
 import { useState, useEffect } from 'react';
 import { initializeApp } from'firebase/app';
 import { getDatabase, push, ref, onValue, remove } from'firebase/database';
 import { Header } from'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Input, Button } from'react-native-elements';
-import { ListItem, Icon, Right } from'react-native-elements';
+import { ListItem } from'react-native-elements';
 
 export default function ShoppingListFirebase() {
 

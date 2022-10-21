@@ -10,6 +10,8 @@ import ShoppingListSQL from './tasks/shopping_SQL/ShoppingListSQL';
 import ShoppingListFirebase from './tasks/shoppingListFirebase/ShoppingListFirebase';
 import ContactsAssignment from './tasks/contacts/ContactsAssignment';
 import TextToSpeech from './tasks/textToSpeech/TextToSpeech';
+import MyPlacesMain from './tasks/maps/myPlaces/MyPlacesMain';
+
 
 
 
@@ -19,7 +21,7 @@ export default function App() {
 
   return (
 
-    <ShoppingListFirebase />
+    <MyPlacesMain />
 
   )
 }
