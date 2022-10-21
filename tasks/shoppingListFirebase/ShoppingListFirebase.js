@@ -1,9 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, FlatList } from 'react-native';
-import {  Button, Alert } from'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
+
 import { useState, useEffect } from 'react';
 import { initializeApp } from'firebase/app';
 import { getDatabase, push, ref, onValue, remove } from'firebase/database';
+import { Header } from'react-native-elements';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Input, Button } from'react-native-elements';
+import { ListItem, Icon, Right } from'react-native-elements';
 
 export default function ShoppingListFirebase() {
 
@@ -53,34 +56,53 @@ export default function ShoppingListFirebase() {
             ref(database, `data/${idToDelete}`));
         }
 
+        renderItem = ({ item, index }) => (
+          
+        <ListItem.Swipeable bottomDivider
+          rightContent={ 
+            <Button title="Delete" icon={{ name: 'delete', color: 'white' }}
+                         buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                         onPress={() => deleteItem(index)}/>}>
+
+          {/*Swipable and button both functional*/}
+                                    
+          <ListItem.Content>
+            <ListItem.Title>{item.product}</ListItem.Title>
+            <ListItem.Subtitle>{item.amount}</ListItem.Subtitle>
+          </ListItem.Content>
+          <ListItem.Chevron type="material"
+                                name="delete"
+                                color="red"
+        onPress={() => deleteItem(index)}/>
+
+          </ListItem.Swipeable>
+        )            
+
   return (
 
-    <View style={styles.container}>
+    <SafeAreaProvider>
+    <Header centerComponent={{ text: 'SHOPPING LIST', style: { color: '#fff' } }} />
 
+    <View style={{paddingTop:25}}>
+      
 
-      <TextInput style={{width:200, borderColor: 'gray', borderWidth:1}} 
+      <Input
       placeholder='Product'
       onChangeText={text => setProduct(text)} />
-      <Text/>
-      <TextInput style={{width:200, borderColor: 'gray', borderWidth:1}} 
+
+      <Input
       placeholder='Amount'
       onChangeText={text => setAmount(text)}  />
 
-      <Button onPress={add}title="Add to Shopping List" />
+      <Button icon={{name: 'save'}} onPress={add} title="Add to Shopping List" />
 
 
-      <FlatList keyExtractor={(item, index) => index.toString()} 
-                data={items} 
-                renderItem={({item, index}) =>
-        <View  style={styles.listcontainer}>
-            <Text>{item.product}, {item.amount}</Text>
-            <Text style={{color: '#0000ff'}} onPress={() => deleteItem(index)}>   Bought</Text>
-        </View>
+      <FlatList  style={{paddingTop:20}} data={items} renderItem={renderItem} keyExtractor={(item, index) => index.toString()}/>
       
-      } />
 
     </View>
- 
+    </SafeAreaProvider>
+
   );
   }
 
@@ -90,7 +112,6 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical:180
 
     },
     listcontainer: {

@@ -13,12 +13,13 @@ import TextToSpeech from './tasks/textToSpeech/TextToSpeech';
 
 
 
+
 export default function App() {
 
 
   return (
 
-    <TextToSpeech />
+    <ShoppingListFirebase />
 
   )
 }
